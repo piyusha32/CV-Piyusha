@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Piyusha Ladage - Curriculum Vitae</title>
+
+<meta name="viewport" content="width=device-width"/>
+<meta name="description" content="The Curriculum Vitae of Piyusha Ladge."/>
+<meta charset="UTF-8"> 
+
+<link rel="stylesheet" href="assets/css/bootstrap.css">
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="assets/css/app.css">
+
+<script src="assets/js/angular.js"></script>
+<script src="app/app.js"></script>
+<script src="app/pfController.js"></script>
+<script src="app/pfDirective.js"></script>
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body id="top">
+<div id="cv" class="instaFade" ng-app="portfolioModule" ng-controller="pfController">
+	<div class="mainDetails">
+		<div id="headshot" class="quickFade">
+			<img ng-src="{{user.avatar_url}}" alt="Piyusha" />
+		</div>
+		
+		<div id="name">
+			<h1 class="quickFade delayTwo">{{user.name}}</h1>
+			<h2 class="quickFade delayThree">{{jobTitle}}</h2>
+		</div>
+		
+		<div id="contactDetails" class="quickFade delayFour">
+			<ul>
+				<li ng-repeat="item in objContact">{{item.title}}: <a ng-href="mailto:{{item.href}}" target="_blank">{{item.media}}</a></li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="mainArea" class="quickFade delayFive">
+		<section>
+			<article>
+				<div class="sectionTitle">
+					<h1>{{profileTitle}}</h1>
+				</div>
+				
+				<ul class="sectionContent">
+                    <li ng-repeat="key in objProfile">{{key.keyPoint}}</li>
+                </ul>
+			</article>
+			<div class="clear"></div>
+        </section>
+        
+		<section>
+			<div class="sectionTitle">
+				<h1>{{Experience}}</h1>
+			</div>
+			
+			<div class="sectionContent">
+				<article ng-repeat="exp in objExperience">
+					<h2>{{exp.jobTitle}}</h2>
+					<p class="subDetails">{{exp.subDetails}}</p>
+					<ul class="responsibilty">
+						<li ng-repeat="desc in exp.description">{{desc}}</li>
+					</ul>
+				</article>
+			</div>
+			<div class="clear"></div>
+		</section>
+		
+		
+		<section>
+			<div class="sectionTitle">
+				<h1>{{skills}}</h1>
+			</div>
+			
+			<div class="sectionContent">
+				<ul class="keySkills">
+					<li ng-repeat="key in objSkills">{{key.skill}}</li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</section>
+        
+        <section>
+            <div class="sectionTitle">
+                <h1>{{Projects}}</h1>
+            </div>
+            
+            <div class="sectionContent projectSection">
+                <article ng-repeat="project in objProjects">
+                    <h2><a ng-href="{{project.href}}">{{project.title}}</a></h2>
+                    <p>Key Responsibilities</p>
+                    <ul class="responsibilty">
+                        <li ng-repeat="responsibility in project.responsibilities">{{responsibility}}</li>
+                    </ul>
+                </article>
+            </div>
+            <div class="clear"></div>
+        </section>
+		
+		<section>
+			<div class="sectionTitle">
+				<h1>{{Education}}</h1>
+			</div>
+			
+			<div class="sectionContent">
+				<article ng-repeat="item in objQualification">
+					<h2>{{item.title}}</h2>
+					<p class="subDetails">{{item.qualification}}</p>
+					<p>{{item.description}}</p>
+				</article>
+			</div>
+			<div class="clear"></div>
+		</section>
+        
+        
+	</div>
+</div>
+</body>
+</html>
+    
